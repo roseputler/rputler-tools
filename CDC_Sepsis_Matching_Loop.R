@@ -14,7 +14,7 @@ controls <- lapply(lapply(controls, FUN = rename, Gender = GenderCode),FUN = sel
 
 #### Matching code ####
 
-# So no we match in each category of case/control (abx day of swab, abx week of swab, abx prior swab no sepsis)
+# So now we match in each category of case/control (abx day of swab, abx week of swab, abx prior swab no sepsis)
 # Our matching criteria is: 
 ## DOB w/in 5 years
 ## Swab w/in 30 days
@@ -64,6 +64,7 @@ swab_match <- function(cases, controls){
   return(match)
 }
 
+#### Matching for our data ####
 set.seed(6103682)
 matches_DayOf <- swab_match(cases = cases[[1]],controls = controls[[1]])
 write.csv(matches_DayOf, "matches_abxdayof_swabs.csv", row.names = F, col.names = T, quote = F)
