@@ -22,7 +22,7 @@ controls <- lapply(lapply(controls, FUN = rename, Gender = GenderCode),FUN = sel
 # And we want 2 controls per case
 swab_match <- function(cases, controls){
   cases <- cases %>% # Take all rows of the data that are yes by attributable CDC severity
-    arrange(DOB,COLLECTION_DATE) %>% # Sort by decreasing "score" (which I don't have, so must be something Krishna created before)
+    arrange(DOB,COLLECTION_DATE) %>% # Sort by values being matched on.
     mutate(case_status = 1,
            stratum = 1:n(),
            ageDiffYrs = as.numeric(NA),
